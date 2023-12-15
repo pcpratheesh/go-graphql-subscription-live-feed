@@ -1,0 +1,10 @@
+type TradeData {
+  symbol: String!
+  last_price: Int!
+  volume: Int!
+  high: Int!
+  low: Int!
+  timestamp: Time!
+}
+
+scalar Time

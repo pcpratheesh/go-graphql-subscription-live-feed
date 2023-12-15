@@ -1,0 +1,8 @@
+type Query {
+  trade: [TradeData]!
+  demo: String
+}
+
+type Subscription {
+  liveTrade(symbol: String!): TradeData!
+}
