@@ -1,3 +1,4 @@
+import moment from 'moment';
 import React from 'react';
 import { Card, Col, Row } from "react-bootstrap"
 
@@ -23,7 +24,7 @@ const TradeWidget = ({data}) => {
         </Row>
         <Row>
           <Col className='p-2 m-2' >
-            {data.liveTrade.timestamp}
+            {moment(data.liveTrade.timestamp).format('DD/MM/YY HH:mm:s')}
           </Col>
         </Row>
       </Card.Body>

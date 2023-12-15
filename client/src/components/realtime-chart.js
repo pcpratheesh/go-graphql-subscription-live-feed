@@ -33,19 +33,29 @@ const RealtimeChart = ({data}) => {
     var event = new Date(data.liveTrade.timestamp);
     let time = event.toLocaleTimeString('en-US')
 
-    setLabels(prevLables => {
-      return [
-        ...prevLables,
-        time
-      ];
+    setLabels(prevLabels => {
+      let updatedLabels = [...prevLabels, time];
+    
+      if (updatedLabels.length > 100) {
+        updatedLabels = updatedLabels.slice(50); // Remove the first element
+        
+      }
+    
+      return updatedLabels;
     });
+
     setDataSet(prevData => {
-      return [
-        ...prevData,
-        data.liveTrade.last_price
-      ];
+      let updatedData = [...prevData, data.liveTrade.last_price];
+    
+      if (updatedData.length > 100) {
+        updatedData = updatedData.slice(50);
+      }
+    
+      return updatedData;
     });
+    
   },[data])
+
   const options = {
     responsive: true,
     plugins: {

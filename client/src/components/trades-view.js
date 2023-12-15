@@ -1,6 +1,8 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import { Card, Table } from "react-bootstrap"
+import Moment from 'moment';
+import moment from 'moment';
 
 
 const TradesView = ({ data }) => {
@@ -45,7 +47,9 @@ const TradesView = ({ data }) => {
                   <td>{trade.volume}</td>
                   <td>{trade.high}</td>
                   <td>{trade.low}</td>
-                  <td>{trade.timestamp}</td>
+                  <td>
+                  {moment(data.liveTrade.timestamp).format('DD/MM/YY HH:mm:s')}
+                  </td>
                 </tr>
 
               ))
